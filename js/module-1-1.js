@@ -279,6 +279,7 @@ let value
 
 // 1 вариант
 // console.log((0.1 * 10 + 0.2 * 10) / 10 === 0.3)
+// 2 вариант
 // console.log(Number((0.1 + 0.2).toFixed(1)) === 0.3)
 
 // // toFixed(n) - округляет то n-знака после точки и переводит в строку
@@ -292,15 +293,15 @@ let value
 // console.log(num3, typeof num3);
 
 // ============ округление числа 
-// Math.ceil()
-console.log(Math.ceil(0.1 + 0.2));
-// Math.floor()
-console.log(Math.floor(0.1 + 0.2));
+// // Math.ceil()
+// console.log(Math.ceil(0.1 + 0.2));
+// // Math.floor()
+// console.log(Math.floor(0.1 + 0.2));
 
-// Math.round()
-console.log(Math.round(0.1 + 0.2));
-console.log(Math.round(0.1 - 0.2));
-console.log(Math.round(0.3 + 0.2));
+// // Math.round()
+// console.log(Math.round(0.1 + 0.2));
+// console.log(Math.round(0.1 - 0.2));
+// console.log(Math.round(0.3 + 0.2));
 
 
 // логические операторы
