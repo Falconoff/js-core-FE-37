@@ -6,22 +6,22 @@
 // примитивы
 // сложные
 
-// Variables
+// ================ Variables ========================
 // ES5
 // console.log('myFirstVar:', myFirstVar) // undefined
-var myFirstVar
+// var myFirstVar
 
-// ES6
-let mySecondVar
+// // ES6
+// let mySecondVar
 // console.log('mySecondVar:', mySecondVar) // undefined
-mySecondVar = 'var by let'
+// mySecondVar = 'var by let'
 // console.log('mySecondVar:', mySecondVar) // undefined
-//
-const myThirdVar = 'variable by const'
+// //
+// const myThirdVar = 'variable by const'
 // console.log(myThirdVar)
 // myThirdVar = "fjadsgfs" // НЕЛЬЗЯ переписать
 
-// // Primitives & operator typeof
+// // =============== Primitives & operator typeof =====================
 // console.log(undefined)
 // console.log(typeof undefined)
 
@@ -41,14 +41,14 @@ const myThirdVar = 'variable by const'
 
 // сложные типы - объекты, массивы и функции
 
-// Приведение типов
-// к этим не приводяься данные
+// =============== Приведение типов ===========================
+// к этим не приводятся данные
 // null
 // undefined
 
 // // а к этим типам можно привести любое значение
 // // string
-// let value
+let value
 // console.log(value, typeof value)
 // value = String(value)
 // console.log(value, typeof value)
@@ -61,7 +61,8 @@ const myThirdVar = 'variable by const'
 // value = true
 // console.log(value, typeof value)
 
-// value = value + '' // конкатенация
+// value = value + '' // конкатенация  // OR...
+// value = String(value);
 // console.log(value, typeof value)
 
 // // number
@@ -73,7 +74,9 @@ const myThirdVar = 'variable by const'
 // // NaN - not a number
 
 // value = '11'
+// console.log(value, typeof value)
 // value = Number(value)
+// value = String(Number(value) + 11).length
 // console.log(value, typeof value)
 
 // value = false
@@ -151,7 +154,8 @@ const myThirdVar = 'variable by const'
 // console.log('false', undefined)
 // console.log('false', false)
 
-// взаимодействие с пользователем
+
+// ========== взаимодействие с пользователем ==================
 // let response = alert("Hello")
 // ok => undefined
 
@@ -160,11 +164,14 @@ const myThirdVar = 'variable by const'
 // cancel => false
 
 // let response = prompt('Введите пожалуйста число')
-// console.log(response)
 // ok => value
 // cancel => null
 
-// осн операторы (матем и сравнения)
+// answer after click
+// console.log(response, typeof response)
+
+
+// ============= осн операторы (матем и сравнения) =====================
 // console.log(1 + 1)
 // console.log(2 - 1)
 // console.log(3 * 4)
@@ -173,8 +180,8 @@ const myThirdVar = 'variable by const'
 // console.log(2 ** 3)
 // console.log(10 % 4)
 
-// console.log(2 > 4);
-// console.log(2 >= 2);
+// console.log(2 > 4);  // false
+// console.log(2 >= 2);   // true
 
 // // не строгое равенство
 // console.log("'1' == 1", '1' == 1) //true
@@ -196,11 +203,11 @@ const myThirdVar = 'variable by const'
 // console.log('"5" != 1', '5' != 1)
 
 // // строгое равенство
-// console.log('1' === 1) // false
+// console.log('1' === 1)  // false
 // //       string === number
 // console.log(1 === 1) // true
-// console.log('true === 1', true === 1)
-// console.log('false === 0', false === 0)
+// console.log('true === 1', true === 1)    // false
+// console.log('false === 0', false === 0)  // false
 
 // // строгое неравенство
 // console.log('1' !== 1) // true
@@ -209,27 +216,27 @@ const myThirdVar = 'variable by const'
 // console.log('true !== 1', true !== 1) // true
 // console.log('false !== 0', false !== 0) // true
 
-// // строки
+// // ================= СТРОКИ =======================
 // console.log('Hello')
 // console.log('Hello')
 // console.log(`Hello`)
 
 // // concat
 // let name = 'Sandra'
-// let message = 'Hello, ' + name + 'We are glad to see you!'
-// console.log(message)
+// let message = 'Hello, ' + name + '! We are glad to see you!'
+// // console.log(message)
 
-// name = 'Anatolii'
-// message = 'Hello, ' + name
+// // name = 'Anatolii'
+// // message = 'Hello, ' + name
 
-// console.log(message)
+// // console.log(message)
 
-// // `${}` - шаблонная строка и интерполяция
+// // ====== `${}` - шаблонная строка и интерполяция ==============
 
 // message = `Hi, ${name}!`
 // console.log(message)
 
-// // toLowerCase() & toUpperCase()
+// =========== toLowerCase() & toUpperCase() ================
 // let nameInDB = 'hrevtsova'
 // console.log(nameInDB.toUpperCase())
 
@@ -238,7 +245,7 @@ const myThirdVar = 'variable by const'
 // // length
 // console.log(lastName.length)
 
-// // includes() & indexOf()
+// // ================ includes() & indexOf() ===================
 // const myLove = 'I Love JavaScript!!!'
 // console.log(myLove)
 
@@ -248,26 +255,43 @@ const myThirdVar = 'variable by const'
 // console.log(myLove.indexOf('Love')) // 2 - index
 // console.log(myLove.indexOf('love')) // -1 - если не нашел совпадения
 
-// числа
-// parseInt()
-// parseFloat()
+
+// ============================== ЧИСЛА ==============================
+
+// ----------- parseInt() - парсит (переводит из строки в число) целую часть (до точки)
+// ----------- parseFloat() - парсит дробное число
 // let weight = prompt('Укажи общий вес товара')
 // console.log(weight, typeof weight)
-// weight = parseFloat(weight)
+
+// let weight = .23251;
+// weight = +parseFloat(weight).toFixed(3);
 // console.log(weight, typeof weight)
 
-// let price = 30
-// let total = weight * price
-// console.log('total', total)
+
+// // let price = 30
+// // let total = weight * price
+// // console.log('total', total)
 
 // 0.1+0.2
-console.log(0.2 + 0.4)
-console.log(0.1 + 0.2 === 0.3) // false
+// console.log(0.2 + 0.4)
+// console.log(0.1 + 0.2 === 0.3) // false
+
 
 // 1 вариант
-console.log((0.1 * 10 + 0.2 * 10) / 10 === 0.3)
-console.log(Number((0.1 + 0.2).toFixed(1)) === 0.3)
+// console.log((0.1 * 10 + 0.2 * 10) / 10 === 0.3)
+// console.log(Number((0.1 + 0.2).toFixed(1)) === 0.3)
 
+// // toFixed(n) - округляет то n-знака после точки и переводит в строку
+
+// let num1 = '.23251';           // string
+// let num2 = parseFloat(num1);   // number
+// let num3 = parseFloat(num1).toFixed(3);  // string
+
+// console.log(num1, typeof num1);
+// console.log(num2, typeof num2);
+// console.log(num3, typeof num3);
+
+// ============ округление числа 
 // Math.ceil()
 console.log(Math.ceil(0.1 + 0.2));
 // Math.floor()
@@ -275,6 +299,7 @@ console.log(Math.floor(0.1 + 0.2));
 
 // Math.round()
 console.log(Math.round(0.1 + 0.2));
+console.log(Math.round(0.1 - 0.2));
 console.log(Math.round(0.3 + 0.2));
 
 
