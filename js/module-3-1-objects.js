@@ -158,15 +158,3 @@
 // // getAvgMark(peter)
 // peter.getAvgMark()
 
-
-const animal = {
-  legs: 4,
-};
-const dog = Object.create(animal);
-console.log(dog); // {name: 'Манго'}
-
-// dog.name = "Манго";
-
-// console.log(dog); // {name: 'Манго'}
-// console.log(dog.name); // 'Манго'
-// console.log(dog.legs); // 4
