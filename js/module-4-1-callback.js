@@ -9,7 +9,6 @@
 
 // higherOrderFunction(printMessage)
 
-/* 
 // ========= опыты с колбэками ============
 const myHighFunc = function (callback, num) {
   const number = num === 1 ? 11 : 22
@@ -30,7 +29,6 @@ myHighFunc(myFirstFunc, 20) // first function  44
 myHighFunc(mySecondFunc, 1) // second function  110
 myHighFunc(mySecondFunc, 10) // second function  220
 // =====================================================
-*/
 
 // ========= стрелочная callback ф-ция ==============
 /*
@@ -104,24 +102,41 @@ poly('eggs and bacon') // Poly is cooking eggs and bacon
 makeShef('xxx')('cakes') // xxx is cooking cakes
 */
 
-/*
 function makeFunc() {
   var name = 'Mozilla'
-  console.log(1)
+  console.log('2 - запустилась makeFunc()')
 
   function displayName() {
-    console.log(3)
-
+    console.log('5 - запустилась displayName()')
     console.log(name)
   }
-  console.log(2)
+
+  console.log('3 - продолжается makeFunc()')
+
+  // return
+
   return displayName
 }
 
-var myFunc = makeFunc()
-myFunc()
-*/
+console.log('1 - начало основной скрипт')
 
+console.log('1.1 - вызываем makeFunc() 1-й раз')
+makeFunc()
+console.log('1.1 - вызываем makeFunc() 2-й раз')
+var myFunc = makeFunc()
+
+// console.log('makeFunc: ', makeFunc) // всё тело ф-ции makeFunc
+// console.log('myFunc: ', myFunc) // тело ф-ции displayName
+// console.log('myFunc(): ', myFunc()) // undefined
+
+console.log('4 - продолжает основной скрипт')
+
+myFunc()
+// myFunc() - то же самое, что makeFunc()()
+
+console.log('6 - конец основного скрипта')
+
+/*
 function makeAdder(x) {
   return function (y) {
     return function (z) {
@@ -135,3 +150,4 @@ var add2 = makeAdder(2)
 
 console.log(add1(1)(1)) // 3
 console.log(add2(2)(2)) // 6
+*/
