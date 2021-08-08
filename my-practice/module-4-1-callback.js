@@ -192,7 +192,7 @@ console.log(add2(2)(2)) // 6
 //          |                           |
 // ___________________________________________________________
 
-// -----------  callback ---------------------
+// ==============  callback ======================
 
 /*
 // ---- first example ----------
@@ -254,7 +254,8 @@ function verifyProds(prodsMustHave, myProds) {
 toDoDrink('americano', verifyProds)
 */
 
-// ------------- filter --------------------
+// ------------- 3 - filter --------------------
+/*
 // DataBase
 const results = [{ mail: 'tyygyg@gmail', scores: 10 }]
 
@@ -284,8 +285,7 @@ function getResultByTests(callback1, callback2, mail, ...scores) {
 
     let max = callback1(scoresArray)
     let min = callback2(scoresArray)
-    console.log('max', max)
-    console.log('min', min)
+    console.log('max', max, 'min', min)
   }
 }
 
@@ -327,3 +327,112 @@ getResultByTests(
   0,
   1,
 )
+*/
+
+// -------------- 4 - последовательность Фибоначчи -------------------------------
+// последовательность чисел, начиная с 0 и 1, в которой следующее число равно сумме двух предыдущих числел
+
+/*
+const getF = (count, callback) => {
+  let firstNum = 0;
+  let secondNum = 1;
+  const arrWithValues = [firstNum, secondNum];
+  // генерим последовательность Фибоначчи
+  for (let i = 3; i <= count; i += 1) {
+    let newNumber = firstNum + secondNum;
+    arrWithValues.push(newNumber);
+    firstNum = secondNum;
+    secondNum = newNumber;
+  }
+  console.log(arrWithValues);
+
+  let result = callback(arrWithValues);
+  return result;
+}
+
+// callback - ищем в массиве чётные значения
+function getEvenValues(arr) {
+  const arrValues = [];
+  for (let num of arr) {
+    if (num % 2 === 0) {
+      arrValues.push(num);
+    }
+  }
+  console.log(arrValues);
+  return arrValues;
+}
+
+// callback - суммируем значения в массиве
+function getSumm(arr) {
+  let total = 0;
+  for (let num of arr) {
+    total += num;
+  }
+  console.log("total", total);
+  return total;
+}
+
+console.log("только чётные", getF(18, getEvenValues));
+console.log("сумма", getF(7, getSumm));
+*/
+
+// ==============  Замыкания  ======================
+
+// -----------  counter  ---------------------
+/*
+document.getElementById('dec').addEventListener('click', () => {
+  let count = prodCounter.decrement(1);
+  console.log(count);
+  document.getElementById('count').textContent = count;
+});
+document.getElementById('inc').addEventListener('click', () => {
+  let count = prodCounter.increment(1);
+  console.log(count);
+  document.getElementById('count').textContent = count;
+});
+
+function createCounter() {
+  let current = 1;
+
+  function increment(value) {
+    return (current += value);
+  }
+
+  function decrement(value) {
+    if (current <= 0) return (current = 0);
+    return (current -= value);
+  }
+
+  // возврат, чтоб можно было вытянуть эти ф-ции
+  return { increment, decrement }
+}
+
+const prodCounter = createCounter();
+console.log(prodCounter);
+*/
+
+// ----------------- change Color ---------------------
+function changeColor() {
+  let color = 'green'
+
+  function getNewColor(value) {
+    return (color = value)
+  }
+
+  function resetColor() {
+    return (color = 'green')
+  }
+
+  return {getNewColor, resetColor}
+}
+
+const x = changeColor();
+
+let color = x.getNewColor('blue');
+console.log(color);
+
+color = x.getNewColor('red');
+console.log(color);
+
+color = x.resetColor();
+console.log(color);
