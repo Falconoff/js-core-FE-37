@@ -31,3 +31,4 @@ import './my-practice/module-5-1-proto.js';
 // import './js/hw-02.js'
 // import './js/hw-03.js'
 // import './js/hw-04.js'
+import './js/hw-05.js'
