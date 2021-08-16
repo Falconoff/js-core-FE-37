@@ -37,6 +37,7 @@ const myCar2 = new Car(10);
 console.log(myCar2);
 */
 
+/*
 const Car = function ({ brand, model, price } = {}) {
   this.brand = brand;
   this.model = model;
@@ -58,3 +59,4 @@ console.log(myCar3);
 
 myCar.changePrice(55550);
 console.log(myCar);
+*/
