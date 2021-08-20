@@ -1,6 +1,6 @@
-// Декларативный подход
-const numbers = [3, 1, 2, 4, 5, 7, 6, 8];
+const numbers = [3, 6, 1, 2, 8, 7, 5, 4];
 console.log('исходный массив:', numbers);
+// Декларативный подход
 // const filteredNumbers = numbers.filter(value => {
 //   return value > 3;
 // });
@@ -124,6 +124,16 @@ console.log([12, 5, 8, 1, 4].some(isBigEnough)); // true
 // Швейцарский нож функциональных методов массива. Возможно немного сложна в усвоении,
 // но результат стоит того.
 
+/*
+console.log('==== Аккумулирующая функция reduce() ====');
+
+// просуммируем все значения из массива numbers:
+// console.log(
+//   'total summ of numbers:',
+//   numbers.reduce((total, num) => total + num, 0),
+// );
+
+// Пример с твитами:
 const tweets = [
   { id: '000', likes: 5, tags: ['js', 'nodejs'] },
   { id: '001', likes: 2, tags: ['html', 'css'] },
@@ -133,12 +143,15 @@ const tweets = [
 ];
 
 // напишем функцию для подсчета лайков из коллекции
+// totalLikes - аккумулятор, tweet - объект, элемент массива
 const countLikes = tweets =>
   tweets.reduce((totalLikes, tweet) => totalLikes + tweet.likes, 0);
 
 console.log('quantity of "likes":', countLikes(tweets)); // 32
 
 // напишем функцию для сбора тегов из коллекции
+// allTags - аккумулятор, начальное значение которого укажем пустым массивом []
+// tweet - объект, элемент массива
 const getTags = tweets =>
   tweets.reduce((allTags, tweet) => {
     allTags.push(...tweet.tags);
@@ -146,22 +159,80 @@ const getTags = tweets =>
     return allTags;
   }, []);
 
-console.log('get array of tags', getTags(tweets));
+console.log('get array of all tags:', getTags(tweets));
 
-const tags = getTags(tweets);
+const tags = getTags(tweets); // список всего, что во всех tags
 
-const getTagStats = (acc, tag) => {
-  if (!acc.hasOwnProperty(tag)) {
-    acc[tag] = 0;
+// Создадим callback-функцию getTagStats() отдельно, а в reducе передадим ссылку на нее.
+// Это стандартная практика если callback-функция довольно большая.
+
+// Если в объекте-аккумуляторе accum нету своего свойства с ключем tag,
+// то создаем его и записывает ему значение 0.
+// В противном случае увеличиваем значение на 1.
+const getTagStats = (accum, tag) => {
+  if (!accum.hasOwnProperty(tag)) {
+    accum[tag] = 0;
   }
 
-  acc[tag] += 1;
+  accum[tag] += 1;
 
-  return acc;
+  return accum;
 };
 
-// Начальное значение аккумулятора это пустой объект {}
+// Начальное значение аккумулятора - это пустой объект {}
 const countTags = tags => tags.reduce(getTagStats, {});
 
 const tagCount = countTags(tags);
 console.log(tagCount);
+*/
+
+// --------- sort() ----------------
+
+// Позволяет сортировать элементы массива на месте.
+
+// const numbers = [2, 1, 4, 3, 5];
+// Отсортирует по возрастанию
+/*
+console.log(
+  'After sort: ',
+  numbers.sort(),
+  // numbers.sort().map(num => num + 1),
+); // [1, 2, 3, 4, 5]
+
+const clients = ['Mango', 'Ajax', 'Poly', 'Chelsey'];
+*/
+
+// Отсортирует по алфавиту
+// console.log('Before sort: ', clients); // ["Mango", "Ajax", "Poly", "Chelsey"]
+// console.log('After sort: ', clients.sort()); // ["Ajax", "Chelsey", "Mango", "Poly"]
+
+// ------- Свой порядок сортировки ----------------
+/*
+console.log(
+  'rtl sort: ',
+  numbers.sort((a, b) => b - a),
+);
+console.log(
+  'ltr sort: ',
+  numbers.sort((a, b) => a - b),
+);
+*/
+
+// --------- Цепочки методов массива ------------------
+/*
+const even = numbers.filter(x => x % 2 === 0);
+console.log('even', even);
+
+const doubled = even.map(x => x * 2);
+console.log('doubled', doubled);
+
+const reversed = doubled.reverse();
+console.log('reversed', reversed);
+*/
+/*
+const result = numbers
+  .filter(num => num % 2 === 0)
+  .map(num => num * 2)
+  .sort((a, b) => a - b);
+console.log(result);
+*/
