@@ -63,7 +63,7 @@ console.log('исходный массив now:', numbers);
 // результат ее выполнения имеет значение true, то возвращает этот элемент
 // и завершает свое выполнение.Если ничего не найдено, вернет undefined.
 
-console.log(numbers.find(num => num === 5));
+// console.log(numbers.find(num => num === 5));
 
 // - - - - - - - - -
 /*
