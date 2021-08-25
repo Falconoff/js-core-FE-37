@@ -20,35 +20,35 @@
 
 // ================= Вычисляемые свойства (Computed properties) ================
 // const key = 'person';
-// const getKey = function () {
-//   return 'age';
+// const getKey = function (string) {
+//   return 'age' + string;
 // };
 
 // // Computed properties
 // const object = {
 //   [key]: 'Mango',
-//   [getKey()]: 2,
+//   [getKey('OfIt')]: 2,
 // };
 
 // console.log(object); // {person: 'Mango', age: 2}
 
 // ================= Перебор объекта - Object.entries() =====================
-// const hotel = {
-//   name: 'Resort Hotel',
-//   stars: 5,
-//   capacity: 100,
-// }
+const hotel = {
+  name: 'Resort Hotel',
+  stars: 5,
+  capacity: 100,
+}
 
-// const entries = Object.entries(hotel)
+const entries = Object.entries(hotel)
 
-// console.log(entries)
+console.log(entries)
 
-// for (const entry of entries) {
-//   const key = entry[0]
-//   const value = entry[1]
+for (const entry of entries) {
+  const key = entry[0]
+  const value = entry[1]
 
-//   console.log(`${key}: ${value}`)
-// }
+  console.log(`${key}: ${value}`)
+}
 
 
 // ================= Распыление аргументов =================
